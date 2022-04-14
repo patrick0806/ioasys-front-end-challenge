@@ -86,18 +86,13 @@ export const InputContainer = styled.div<InputContainerProps>`
       `
       }
     }
-    &:focus-within {
-     
-       
-        
+    &:focus-within {      
         outline: 2px solid #fff;
 
         & ${Label} {
           color: #78788c;
           ${label.up}
         }
-      
-      
     }
     
   `};
@@ -110,12 +105,12 @@ export const Error = styled.div`
   font-size: 16px;
   font-weight: bold;
   width: 239px;
-  height: 48px;
+  height: 30px;
   display: flex;
   align-items: center;
-  position: relative;
+  position: absolute;
   padding: 15px;
-  margin-top: 20px;
+  z-index: 2px;
 
   :after {
     content: "";
@@ -131,3 +126,7 @@ export const Error = styled.div`
     border-right: 10px solid transparent;
   }
 `;
+
+export const InputWithErrorContainer = styled.div`
+  position: relative;
+`

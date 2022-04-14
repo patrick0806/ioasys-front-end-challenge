@@ -43,10 +43,14 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 368px;
-  height: 300px;
+  height: 225px;
   @media (max-width: 768px) {
     justify-content: space-around;
     width: 280px;
     height: 180px;
   }
+`;
+
+export const InputContainer = styled.div`
+  position: relative;
 `;

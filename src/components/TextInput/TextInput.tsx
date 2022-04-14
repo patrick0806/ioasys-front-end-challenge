@@ -30,7 +30,7 @@ export function TextInput({
   );
 
   return (
-    <>
+    <S.InputWithErrorContainer>
       <S.InputContainer hasPlaceholder={!!placeholder}>
       <S.Input
         {...rest}
@@ -50,6 +50,6 @@ export function TextInput({
       )}
     </S.InputContainer>
       {error && <S.Error>{error}</S.Error>}
-    </>
+    </S.InputWithErrorContainer>
   );
 }

@@ -13,6 +13,7 @@ export function Login() {
         <S.PageTitle>
           <Logo /> &nbsp; Books
         </S.PageTitle>
+
         <TextInput
           placeholder="Email"
           name="email"
@@ -22,6 +23,7 @@ export function Login() {
           placeholder="Senha"
           name="password"
           isPassword={true}
+          error="Senha invalida"
           onChange={(event) => setPassword(event.target.value)}
           buttonRight={
             <Button
