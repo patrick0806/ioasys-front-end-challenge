@@ -3,7 +3,7 @@ import { issueRequest } from "../util/issusRequest";
 
 export async function getBooks(
   page = 1,
-  amount = 10,
+  amount = 12,
   title = "",
   category = ""
 ): Promise<BookList> {

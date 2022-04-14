@@ -3,6 +3,7 @@ import * as S from "./Books.styles";
 import { Book, BookList } from "../../types/Book";
 import { BookCard } from "../../components/BookCard/BookCard";
 import { getBooks } from "../../services/getBooks";
+import { Logo } from "../../assets/icons";
 
 export function BooksPage() {
   const [bookList, setBookList] = React.useState<BookList>();
@@ -18,13 +19,23 @@ export function BooksPage() {
 
   return (
     <S.Container>
-     {/*  <S.BooksContainer>
-        {bookList &&
-          bookList.data.map((book: Book,idx) => {
-            if(idx ===0)
-            return <BookCard key={book.id} book={book} />;
-          })}
-      </S.BooksContainer> */}
+      <S.Menu>menu</S.Menu>
+      <S.BooksContainer>
+        book
+      </S.BooksContainer>
     </S.Container>
   );
 }
+/* <S.Container>
+      <S.Content>
+        <S.PageTitle>
+          <Logo color={"#333333"}/> &nbsp; Books
+        </S.PageTitle>
+        <S.BooksContainer>
+          {bookList &&
+            bookList.data.map((book: Book) => {
+              return <BookCard key={book.id} book={book} />;
+            })}
+        </S.BooksContainer>
+      </S.Content>
+    </S.Container> */
