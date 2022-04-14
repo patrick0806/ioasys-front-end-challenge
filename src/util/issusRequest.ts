@@ -39,12 +39,9 @@ export const issueRequest = async ({
       },
     });
 
-    if (response.status === 200) {
-      const authorization = response.headers.get("Authorization");
-      const refreshToken = response.headers.get("refresh-Token");
-
-      document.cookie = `Authorization=${authorization}`;
-      document.cookie = `refreshToken=${refreshToken}`;
+    if (response.status === 204 ) {
+      document.cookie = `Authorization=${response.headers.get("Authorization")};`;
+      document.cookie = `refreshToken=${response.headers.get("refresh-Token")}`;
 
       return issueRequest({ path, method, body });
     }

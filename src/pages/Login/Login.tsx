@@ -4,7 +4,6 @@ import * as S from "./Login.styles";
 import { Logo } from "../../assets/icons";
 import { TextInput } from "../../components/TextInput/TextInput";
 import { Button } from "../../components/Button/Button";
-import { User } from "../../types/user";
 import { SignIn } from "../../services/SignIn";
 
 export function Login() {
