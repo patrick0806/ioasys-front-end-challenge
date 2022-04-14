@@ -1,12 +1,17 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import * as S from "./Login.styles";
 import { Logo } from "../../assets/icons";
 import { TextInput } from "../../components/TextInput/TextInput";
 import { Button } from "../../components/Button/Button";
+import { User } from "../../types/user";
+import { SignIn } from "../../services/SignIn";
 
 export function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState("");
+  const navigate = useNavigate();
   return (
     <S.Container>
       <S.FormContainer>
@@ -23,14 +28,21 @@ export function Login() {
           placeholder="Senha"
           name="password"
           isPassword={true}
-          error="Senha invalida"
+          error={error}
           onChange={(event) => setPassword(event.target.value)}
           buttonRight={
             <Button
               label="Entrar"
               onClick={async () => {
-                console.log("cliquei");
-              }}
+                const response = await SignIn({email,password});
+                if(typeof response === 'string'){
+                  setError(response);
+                }else{
+                    navigate("/books");
+                    const{name,email,birthdate,gender,id} = response;
+                }      
+                
+            }}
             />
           }
         />
