@@ -9,10 +9,10 @@ export function Login() {
   const [password, setPassword] = React.useState("");
   return (
     <S.Container>
-      <S.PageTitle>
-        <Logo /> &nbsp; Books
-      </S.PageTitle>
       <S.FormContainer>
+        <S.PageTitle>
+          <Logo /> &nbsp; Books
+        </S.PageTitle>
         <TextInput
           placeholder="Email"
           name="email"

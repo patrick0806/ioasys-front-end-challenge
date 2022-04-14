@@ -8,24 +8,32 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-left: 60px;
+
   @media (max-width: 768px) {
+    padding-left: 0px;
+    align-items: center;
+    justify-content: center;
     background: url(${MobileImageBackGround});
     background-size: cover;
   }
 `;
 
 export const PageTitle = styled.h1`
+  width: 100%;
   color: #fff;
   font-size: 28px;
   display: flex;
   font-weight: 300;
-  width: 295px;
   align-items: center;
   height: 30px;
-  margin-bottom: 20px;
-  
+  margin-bottom: 50px;
+  @media (max-width: 768px) {
+    width: 295px;
+    margin-bottom: 20px;
+  }
   &svg {
     padding-right: 5px;
   }
@@ -34,10 +42,11 @@ export const PageTitle = styled.h1`
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   width: 368px;
+  height: 300px;
   @media (max-width: 768px) {
+    justify-content: space-around;
     width: 280px;
-    height: 120px;
+    height: 180px;
   }
 `;
