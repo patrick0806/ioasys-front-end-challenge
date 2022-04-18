@@ -1,4 +1,4 @@
-import { BookList } from "../types/Book";
+import { BookList } from "../types/book";
 import { issueRequest } from "../util/issusRequest";
 
 export async function getBooks(
@@ -7,7 +7,7 @@ export async function getBooks(
   title = "",
   category = ""
 ): Promise<BookList> {
-  let path = `/books?page=${page}&amount=${amount}`;
+  let path = `books?page=${page}&amount=${amount}`;
 
   if (title) {
     path += `&title=${title}`;

@@ -18,14 +18,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background: url(${background});
   background-size: cover;
   overflow-x: hidden;
 `;
 
 export const Menu = styled.div`
-  
+  width: 90%;
   height: 200px;
   display: flex;
   flex-direction: row;
@@ -42,7 +41,6 @@ export const UserMenu = styled.div`
 `;
 
 export const BooksContainer = styled.div`
-  
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-template-rows: 135px 135px 135px;
@@ -61,4 +59,7 @@ export const User = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
