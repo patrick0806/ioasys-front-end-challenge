@@ -23,32 +23,38 @@ export function BooksPage() {
   }, []);
 
   return (
-    <S.Container>
-      <S.Menu>
-        <S.PageTitle>
-          <Logo color={"#333333"} /> &nbsp; Books
-        </S.PageTitle>
-        <S.UserMenu>
-          <S.User>Bem vindo, {user}</S.User>
-          <Exit onClick={() => console.log("cliquei")} />
-        </S.UserMenu>
-      </S.Menu>
-      <S.BooksContainer>
-        {bookList &&
-          bookList.data.map((book: Book) => {
-            return (
-              <BookCard
-                key={book.id}
-                book={book}
-                setShowBookModal={setShowBookModal}
-                setSelectedBookId={setSelectedBookId}
-              />
-            );
-          })}
-      </S.BooksContainer>
-      {selectedBookId && (
-        <BookDetails bookId={selectedBookId} showBook={showBookModal} />
-      )}
-    </S.Container>
+    <S.Background>
+      <S.Container>
+        <S.Menu>
+          <S.PageTitle>
+            <Logo color={"#333333"} /> &nbsp; Books
+          </S.PageTitle>
+          <S.UserMenu>
+            <S.User>Bem vindo, {user}</S.User>
+            <Exit onClick={() => console.log("cliquei")} />
+          </S.UserMenu>
+        </S.Menu>
+        <S.BooksContainer>
+          {bookList &&
+            bookList.data.map((book: Book) => {
+              return (
+                <BookCard
+                  key={book.id}
+                  book={book}
+                  setShowBookModal={setShowBookModal}
+                  setSelectedBookId={setSelectedBookId}
+                />
+              );
+            })}
+        </S.BooksContainer>
+        {selectedBookId && (
+          <BookDetails
+            bookId={selectedBookId}
+            showBook={showBookModal}
+            setShowBook={setShowBookModal}
+          />
+        )}
+      </S.Container>
+    </S.Background>
   );
 }

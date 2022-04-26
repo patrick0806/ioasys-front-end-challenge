@@ -14,23 +14,45 @@ export const PageTitle = styled.h1`
   }
 `;
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const Background = styled.div`
   background: url(${background});
   background-size: cover;
-  overflow-x: hidden;
+  @media (max-width: 768px) {
+    background-repeat: repeat-y;
+    height: 100%;
+  }
+`;
+
+export const Container = styled.div`
+  display: grid;
+  grid-template-areas:
+    "header"
+    "cards";
+  grid-template-rows: 200px auto;
+  grid-template-columns: calc(100vw - 200px);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-rows: 100px auto;
+    grid-template-columns: calc(100% - 15px);
+  }
 `;
 
 export const Menu = styled.div`
   width: 90%;
-  height: 200px;
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0;
+  grid-area: header;
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const UserMenu = styled.div`
@@ -41,12 +63,14 @@ export const UserMenu = styled.div`
 `;
 
 export const BooksContainer = styled.div`
+  width: 90%;
+  grid-area: cards;
   display: grid;
-  grid-template-columns: repeat(4, auto);
   grid-template-rows: 135px 135px 135px;
-  grid-gap: 15px;
-  height: 500px;
-  @media (max-width: 768px) {
+  grid-template-columns: repeat(auto-fill, minmax(298px, 1fr));
+  grid-gap: 25px;
+  justify-items: center;
+    @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: center;

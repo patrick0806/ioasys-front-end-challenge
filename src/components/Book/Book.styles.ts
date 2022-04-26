@@ -11,108 +11,120 @@ export const Container = styled.div<ShowModalProps>`
   top: 0px;
   left: 0px;
   width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   ${({ showModal }) => `
-    display: ${showModal ? "flex" : "none"};    
+    display: ${showModal ? "grid" : "none"};    
   `};
-  justify-content: center;
-  align-items: center;
+  justify-items: center;
+  grid-template-rows: 100px 1fr;
 `;
 
 export const Modal = styled.div`
-  max-width: 100%;
   z-index: 3;
   background-color: #fff;
-  display: flex;
-  width: 769px;
-  height: 608px;
-  justify-content: space-around;
-  align-items: center;
-
+  display: grid;
+  justify-items: center;
+  padding: 24px;
+  grid-template-columns: 1fr 1fr;
+  width: 70%;
+  height: 70%;
+  box-sizing: border-box;
   @media (max-width: 768px) {
     width: 90%;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
 `;
 
-export const BookCover = styled.div`
+export const BookImage = styled.img`
+  width: 349px;
+  height: 100%;
   @media (max-width: 768px) {
-    padding-top: 24px;
-    display: flex;
-    justify-content: center;
+    width:240px;
+    height:351px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
   }
 `;
 
 export const Title = styled.h1`
   color: #333333;
-  font-weight: 500;
-  margin-bottom: 0px;
   font-size: 28px;
-  width: 240px;
-  padding-left: 24px;
+  font-weight: 500;
 `;
 
 export const Authors = styled.p`
-  width: 240px;
-  font-size: 12px;
   color: #ab2680;
-  padding-left: 24px;
+  font-size: 12px;
+  font-weight: 400;
 `;
 
 export const InfoTitle = styled.p`
-  color: #333333;
-  font-size: 12px;
+  margin-top: 10px;
+  height: 25px;
 `;
 
-export const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 240px;
-  margin-bottom: 24px;
+export const BookDetails = styled.div`
+  display: grid;
+  grid-template-columns: 90%;
+  grid-template-rows: auto auto auto;
   padding-left: 24px;
+  padding-top: 10px;
 `;
 
-export const InfoLabelContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+export const Details = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 32px;
 `;
 
 export const InfoLabel = styled.p`
+  padding-bottom: 5px;
+  padding-right: 10px;
   color: #333333;
   font-size: 12px;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
 `;
 
 export const Info = styled.p`
-  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: end;
   color: #999999;
   font-size: 12px;
 `;
 
 export const Resume = styled.p`
+  margin-top: 10px;
   font-size: 12;
   color: #999999;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const ResumeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 240px;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 24px;
+  display: grid;
+  grid-template-rows: 25px 1fr;
 `;
 
-export const FlexCollumn = styled.div`
-  @media (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-  }
+export const CloseModalButtonContainer = styled.div`
+  margin-top: 25px;
+  margin-right: 60px;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 `;
+
+
+export const CloseModalButton = styled.div`
+  width: 30px;
+  height: 30px;
+  border: 1px solid #333333;
+  background-color: #fff;
+  color: #333333;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+`

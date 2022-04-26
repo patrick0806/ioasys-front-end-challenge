@@ -6,14 +6,16 @@ export const Container = styled.div`
   border-radius: 4px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
   grid-template-columns: 81px 1fr;
-  width: 288px;
-  height: 122px;
+  width: 298px;
+  height: 132px;
   padding: 10px;
+  box-sizing: border-box;
+  align-content: center;
 `;
 
 export const BookImage = styled.img`
+  background-color: red;
   object-fit: cover;
-  height: 122px;
 `;
 
 export const BookInfosContainer = styled.div`
