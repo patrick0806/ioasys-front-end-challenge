@@ -113,6 +113,10 @@ export const CloseModalButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
+  @media (max-width: 768px) {
+    margin-top: 15px;
+  margin-right: 15px;
+  }
 `;
 
 
