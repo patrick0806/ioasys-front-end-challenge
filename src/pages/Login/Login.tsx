@@ -5,12 +5,14 @@ import { Logo } from "../../assets/icons";
 import { TextInput } from "../../components/TextInput/TextInput";
 import { Button } from "../../components/Button/Button";
 import { SignIn } from "../../services/SignIn";
+import { useUserContext } from "../../context/UserContext";
 
 export function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState("");
   const navigate = useNavigate();
+  const { dispatch } = useUserContext();
   return (
     <S.Container>
       <S.FormContainer>
@@ -33,15 +35,14 @@ export function Login() {
             <Button
               label="Entrar"
               onClick={async () => {
-                const response = await SignIn({email,password});
-                if(typeof response === 'string'){
+                const response = await SignIn({ email, password });
+                if (typeof response === "string") {
                   setError(response);
-                }else{
-                    navigate("/books");
-                    const{name,email,birthdate,gender,id} = response;
-                }      
-                
-            }}
+                } else {
+                  dispatch({ type: "LOGIN", payload: response });
+                  navigate("/books");
+                }
+              }}
             />
           }
         />

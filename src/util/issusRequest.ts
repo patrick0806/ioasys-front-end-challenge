@@ -1,3 +1,4 @@
+import { getUserData } from "../context/UserContext";
 import { getCookie } from "./getCookie";
 
 export const BASE_URL = "https://books.ioasys.com.br/api/v1/";
@@ -39,10 +40,12 @@ export const issueRequest = async ({
       },
     });
 
-    if (response.status === 204 ) {
-      document.cookie = `Authorization=${response.headers.get("Authorization")};`;
+    if (response.status === 204) {
+      document.cookie = `Authorization=${response.headers.get(
+        "Authorization"
+      )};`;
       document.cookie = `refreshToken=${response.headers.get("refresh-Token")}`;
-
+      getUserData();
       return issueRequest({ path, method, body });
     }
 
