@@ -41,7 +41,7 @@ export const Container = styled.div`
 `;
 
 export const Menu = styled.div`
-  width: 90%;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -63,14 +63,13 @@ export const UserMenu = styled.div`
 `;
 
 export const BooksContainer = styled.div`
-  width: 90%;
   grid-area: cards;
   display: grid;
   grid-template-rows: 135px 135px 135px;
   grid-template-columns: repeat(auto-fill, minmax(298px, 1fr));
-  grid-gap: 25px;
-  justify-items: center;
-    @media (max-width: 768px) {
+  gap: 15px;
+  
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: center;

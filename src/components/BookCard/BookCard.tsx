@@ -14,22 +14,19 @@ export function BookCard({
   setSelectedBookId,
 }: BookCardProps) {
   return (
-    <>
-      <S.Container
-        onClick={() => {
-          setShowBookModal((prevState) => !prevState),
-            setSelectedBookId(book.id);
-        }}
-      >
-        <S.BookImage src={book.imageUrl} />
-        <S.BookInfosContainer>
-          <S.BookTitle>{book.title}</S.BookTitle>
-          <S.Authors>{book.authors}</S.Authors>
-          <S.info>{book.pageCount} páginas</S.info>
-          <S.info>{book.publisher}</S.info>
-          <S.info>Publícado em {book.published}</S.info>
-        </S.BookInfosContainer>
-      </S.Container>
-    </>
+    <S.Container
+      onClick={() => {
+        setShowBookModal((prevState) => !prevState), setSelectedBookId(book.id);
+      }}
+    >
+      <S.BookImage src={book.imageUrl} alt={book.title} />
+      <S.BookInfosContainer>
+        <S.BookTitle>{book.title}</S.BookTitle>
+        <S.Authors>{book.authors}</S.Authors>
+        <S.info>{book.pageCount} páginas</S.info>
+        <S.info>{book.publisher}</S.info>
+        <S.info>Publícado em {book.published}</S.info>
+      </S.BookInfosContainer>
+    </S.Container>
   );
 }
