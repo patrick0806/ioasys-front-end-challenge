@@ -1,0 +1,10 @@
+{
+  "lang": "en-US",
+  "types": {
+    "deps": false,
+    "temp": false
+  },
+  "min-len": 10,
+  "max-len": 80,
+  "example": "feat: change the color of main theme to red"
+}
