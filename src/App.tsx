@@ -5,13 +5,14 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
+import { Login } from './Pages/Login/Login';
 
 function App() {
   return (
     <Router>
       <GlobalStyle />
       <Routes>
-        <Route path="/login" element={<div>login</div>} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/books" element={<div>books</div>} />
         <Route path="*" element={<Navigate to="/login" replace />} />
