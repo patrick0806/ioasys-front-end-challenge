@@ -6,6 +6,7 @@ import { getBooks } from '../../services/books/bookService';
 import { Exit, Logo } from '../../assets/icons';
 import { useUserContext } from '../../context/UserContext';
 import { SignOut } from '../../services/user/userService';
+import { BookDetails } from '../../Components/Book/Book';
 
 export function BooksPage() {
   const [bookList, setBookList] = React.useState<BookList>();
@@ -42,6 +43,8 @@ export function BooksPage() {
       setBookList(response);
     }
   }
+
+  console.log(showBookModal);
 
   return (
     <S.Background>
@@ -85,6 +88,13 @@ export function BooksPage() {
             {'>'}
           </S.ButtonNextPage>
         </S.PaginationContainer>
+        {selectedBookId && (
+          <BookDetails
+            bookId={selectedBookId}
+            showBook={showBookModal}
+            setShowBook={setShowBookModal}
+          />
+        )}
       </S.Container>
     </S.Background>
   );
