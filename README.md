@@ -24,3 +24,9 @@ e
 ```bash
 pnpm run dev
 ```
+
+Para fazer login no sistema
+essas são as informações:
+
+email: desafio@ioasys.com.br
+senha: 12341234
