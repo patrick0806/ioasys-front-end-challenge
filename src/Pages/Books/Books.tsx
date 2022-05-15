@@ -19,6 +19,27 @@ export function BooksPage() {
     loadBooks();
   }, []);
 
+  async function toNextPage() {
+    if (!bookList) {
+      return;
+    }
+    if (bookList.page < bookList.totalPages) {
+      const response = await getBooks(bookList.page + 1);
+      setBookList(response);
+    }
+  }
+
+  async function toBackPage() {
+    if (!bookList) {
+      return;
+    }
+
+    if (bookList.page > 1) {
+      const response = await getBooks(bookList.page - 1);
+      setBookList(response);
+    }
+  }
+
   return (
     <S.Background>
       <S.Container>
@@ -42,6 +63,23 @@ export function BooksPage() {
               />
             ))}
         </S.BooksContainer>
+        <S.PaginationContainer>
+          <S.ButtonBackPage
+            isDisabled={bookList?.page === 1}
+            onClick={toBackPage}
+          >
+            {'<'}
+          </S.ButtonBackPage>
+          <S.PagesInfo>
+            Página {bookList?.page} de {bookList?.totalPages.toFixed(0)}
+          </S.PagesInfo>
+          <S.ButtonNextPage
+            isDisabled={bookList?.totalPages.toFixed(0) === bookList?.page}
+            onClick={toNextPage}
+          >
+            {'>'}
+          </S.ButtonNextPage>
+        </S.PaginationContainer>
       </S.Container>
     </S.Background>
   );
