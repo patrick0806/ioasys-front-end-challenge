@@ -33,6 +33,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   justify-items: center;
+  overflow-y: auto;
 
   @media (max-width: 768px) {
     grid-template-rows: 100px auto;
