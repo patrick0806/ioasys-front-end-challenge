@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as S from './BookCard.styles';
 import { Book } from '../../types/Book';
+import ImageDefault from '../../assets/images/book-default.png';
 
 type BookCardProps = {
   book: Book;
@@ -16,10 +17,10 @@ export function BookCard({
   const handleShowBookModal = () => {
     setShowBookModal((prevState) => !prevState), setSelectedBookId(book.id);
   };
-
+  const bookImage = book.imageUrl ? book.imageUrl : ImageDefault;
   return (
     <S.Container onClick={() => handleShowBookModal}>
-      <S.BookImage src={book.imageUrl} alt={book.title} />
+      <S.BookImage src={bookImage} alt={book.title} />
       <S.BookInfosContainer>
         <S.BookTitle>{book.title}</S.BookTitle>
         <S.Authors>{book.authors}</S.Authors>
