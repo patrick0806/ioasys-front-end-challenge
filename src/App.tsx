@@ -6,7 +6,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import { Login } from './Pages/Login/Login';
-import { Books } from './Pages/Books/Books';
+import { BooksPage } from './Pages/Books/Books';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
 
-        <Route path="/books" element={<Books />} />
+        <Route path="/books" element={<BooksPage />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
