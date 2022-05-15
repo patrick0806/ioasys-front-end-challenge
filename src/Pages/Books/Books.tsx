@@ -5,6 +5,7 @@ import * as S from './Books.styles';
 import { getBooks } from '../../services/books/bookService';
 import { Exit, Logo } from '../../assets/icons';
 import { useUserContext } from '../../context/UserContext';
+import { SignOut } from '../../services/user/userService';
 
 export function BooksPage() {
   const [bookList, setBookList] = React.useState<BookList>();
@@ -51,7 +52,9 @@ export function BooksPage() {
           </S.PageTitle>
           <S.UserMenu>
             <S.User>Bem vindo, {user.name}</S.User>
-            <Exit onClick={() => console.log('cliquei')} />
+            <div onClick={SignOut}>
+              <Exit />
+            </div>
           </S.UserMenu>
         </S.Menu>
         <S.BooksContainer>
