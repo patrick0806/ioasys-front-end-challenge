@@ -4,6 +4,7 @@ import { Logo } from '../../assets/icons';
 import * as S from './Login.styles';
 import { TextInput } from '../../Components/TextInput/TextInput';
 import { SignIn } from '../../services/user/userService';
+import { useUserContext } from '../../context/UserContext';
 
 type HandleSubmitProps = {
   event: React.FormEvent<HTMLFormElement>;
@@ -14,6 +15,7 @@ export function Login() {
   const [password, setPassword] = React.useState('');
   const [error, setError] = React.useState('');
   const navigate = useNavigate();
+  const { dispatch } = useUserContext();
 
   const handleSubmit = async ({ event }: HandleSubmitProps) => {
     event.preventDefault();
@@ -21,6 +23,7 @@ export function Login() {
     if (typeof response === 'string') {
       setError(response);
     } else {
+      dispatch({ type: 'LOGIN', payload: response });
       navigate('/books');
     }
   };

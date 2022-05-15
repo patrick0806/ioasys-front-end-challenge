@@ -4,11 +4,14 @@ import { BookCard } from '../../Components/BookCard/BookCard';
 import * as S from './Books.styles';
 import { getBooks } from '../../services/books/bookService';
 import { Exit, Logo } from '../../assets/icons';
+import { useUserContext } from '../../context/UserContext';
+import { SignOut } from '../../services/user/userService';
 
 export function BooksPage() {
   const [bookList, setBookList] = React.useState<BookList>();
   const [showBookModal, setShowBookModal] = React.useState(false);
   const [selectedBookId, setSelectedBookId] = React.useState('');
+  const { user } = useUserContext();
 
   React.useEffect(() => {
     async function loadBooks() {
@@ -48,8 +51,10 @@ export function BooksPage() {
             <Logo color={'#333333'} /> &nbsp; Books
           </S.PageTitle>
           <S.UserMenu>
-            <S.User>Bem vindo, user.name</S.User>
-            <Exit onClick={() => console.log('cliquei')} />
+            <S.User>Bem vindo, {user.name}</S.User>
+            <div onClick={SignOut}>
+              <Exit />
+            </div>
           </S.UserMenu>
         </S.Menu>
         <S.BooksContainer>
