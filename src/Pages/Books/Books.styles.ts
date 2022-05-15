@@ -29,7 +29,7 @@ export const Container = styled.div`
     'header'
     'cards'
     'pagination';
-  grid-template-rows: 200px auto 50px;
+  grid-template-rows: 200px 455px 50px;
   grid-template-columns: calc(100vw - 200px);
   justify-content: center;
   align-items: center;

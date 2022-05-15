@@ -7,18 +7,28 @@ import {
 } from 'react-router-dom';
 import { Login } from './Pages/Login/Login';
 import { BooksPage } from './Pages/Books/Books';
+import { RequireAuth, UserProvider } from './context/UserContext';
 
 function App() {
   return (
-    <Router>
-      <GlobalStyle />
-      <Routes>
-        <Route path="/login" element={<Login />} />
+    <UserProvider>
+      <Router>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/login" element={<Login />} />
 
-        <Route path="/books" element={<BooksPage />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
-      </Routes>
-    </Router>
+          <Route
+            path="/books"
+            element={
+              <RequireAuth>
+                <BooksPage />
+              </RequireAuth>
+            }
+          />
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </Router>
+    </UserProvider>
   );
 }
 
