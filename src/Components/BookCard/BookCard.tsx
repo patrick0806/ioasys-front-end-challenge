@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as S from './BookCard.styles';
-import { Book } from '../../types/book';
+import { Book } from '../../types/Book';
 
 type BookCardProps = {
   book: Book;
