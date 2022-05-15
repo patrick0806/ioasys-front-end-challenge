@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Book } from '../../types/book';
+import { Book } from '../../types/Book';
 import { BookCard } from '../../Components/BookCard/BookCard';
 
 export function Books() {
