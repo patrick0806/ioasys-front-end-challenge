@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Logo } from '../../assets/icons';
 import * as S from './Login.styles';
 import { TextInput } from '../../Components/TextInput/TextInput';
+import { SignIn } from '../../services/user/UserService';
 
 type HandleSubmitProps = {
   event: React.FormEvent<HTMLFormElement>;
@@ -14,8 +15,14 @@ export function Login() {
   const [error, setError] = React.useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = ({ event }: HandleSubmitProps) => {
-    console.log(event);
+  const handleSubmit = async ({ event }: HandleSubmitProps) => {
+    event.preventDefault();
+    const response = await SignIn({ email, password });
+    if (typeof response === 'string') {
+      setError(response);
+    } else {
+      navigate('/books');
+    }
   };
   return (
     <S.Container>

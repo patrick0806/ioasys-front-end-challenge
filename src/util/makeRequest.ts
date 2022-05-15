@@ -1,6 +1,6 @@
 const BASE_URL = 'https://books.ioasys.com.br/api/v1/';
 
-enum HttpMethod {
+export enum HttpMethod {
   POST = 'POST',
   GET = 'GET',
   DELETE = 'DELETE',
