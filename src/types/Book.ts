@@ -12,3 +12,10 @@ export type Book = {
   publisher: string;
   title: string;
 };
+
+export type BookList = {
+  data: Book[];
+  page: number;
+  totalItems: number;
+  totalPages: number;
+};
