@@ -11,7 +11,7 @@ async function SignIn({
   password,
 }: SignInProps): Promise<User | string> {
   const response = await makeRequest({
-    path: '/auth/sign-in',
+    path: 'auth/sign-in',
     method: HttpMethod.POST,
     body: { email, password },
   });
