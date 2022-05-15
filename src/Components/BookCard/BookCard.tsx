@@ -19,7 +19,7 @@ export function BookCard({
   };
   const bookImage = book.imageUrl ? book.imageUrl : ImageDefault;
   return (
-    <S.Container onClick={() => handleShowBookModal}>
+    <S.Container onClick={() => handleShowBookModal()}>
       <S.BookImage src={bookImage} alt={book.title} />
       <S.BookInfosContainer>
         <S.BookTitle>{book.title}</S.BookTitle>
