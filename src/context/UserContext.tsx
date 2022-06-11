@@ -58,7 +58,7 @@ export function RequireAuth({ children }: { children: JSX.Element }) {
   const { user, dispatch } = useUserContext();
   const location = useLocation();
   if (!user) {
-    const userInStorage = sessionStorage.getItem('user');
+    const userInStorage = localStorage.getItem('user');
     if (userInStorage) {
       dispatch({ type: 'LOGIN', payload: JSON.parse(userInStorage) });
       return children;

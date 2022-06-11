@@ -30,7 +30,7 @@ export const Container = styled.div`
     'cards'
     'pagination';
   grid-template-rows: 200px 455px 50px;
-  grid-template-columns: calc(100vw - 200px);
+  grid-template-columns: calc(100vw - 150px);
   justify-content: center;
   align-items: center;
   justify-items: center;
@@ -66,8 +66,9 @@ export const UserMenu = styled.div`
 export const BooksContainer = styled.div`
   grid-area: cards;
   display: grid;
+  width: 100%;
   grid-template-rows: 135px 135px 135px;
-  grid-template-columns: repeat(4, minmax(298px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   overflow-y: auto;
 

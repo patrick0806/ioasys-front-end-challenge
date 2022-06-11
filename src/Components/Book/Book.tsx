@@ -39,7 +39,7 @@ export function BookDetails({ bookId, showBook, setShowBook }: BookProps) {
             <S.CloseModalButton>X</S.CloseModalButton>
           </S.CloseModalButtonContainer>
           <S.Modal>
-            <S.BookImage src={bookImage} alt={book.title} />
+            <S.BookImage src="bookImage" alt={book.title} />
             <S.BookDetails>
               <S.Title>{book.title}</S.Title>
               <S.Authors>

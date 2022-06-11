@@ -29,7 +29,7 @@ export const Modal = styled.div`
   padding: 24px;
   grid-template-columns: 1fr 1fr;
   width: 70%;
-  height: 70%;
+  height: 80%;
   box-sizing: border-box;
   overflow-y: scroll;
   @media (max-width: 768px) {

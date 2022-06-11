@@ -21,9 +21,9 @@ async function SignIn({
 
   if (response.status === 200 && authorization && refreshToken) {
     const user = await response.json();
-    sessionStorage.setItem('authorization', authorization);
-    sessionStorage.setItem('refreshToken', refreshToken);
-    sessionStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('authorization', authorization);
+    localStorage.setItem('refreshToken', refreshToken);
+    localStorage.setItem('user', JSON.stringify(user));
 
     return user;
   }
@@ -33,7 +33,7 @@ async function SignIn({
 }
 
 async function SignOut() {
-  sessionStorage.clear();
+  localStorage.clear();
   window.location.assign('http://localhost:3000/login');
 }
 

@@ -20,7 +20,7 @@ const makeRequest = async ({
   method,
   body,
 }: RequestProps): Promise<Response> => {
-  const authorization = sessionStorage.getItem('authorization');
+  const authorization = localStorage.getItem('authorization');
   const response = await fetch(`${BASE_URL}${path}`, {
     method,
     body: body ? JSON.stringify(body) : undefined,
@@ -31,7 +31,7 @@ const makeRequest = async ({
   });
 
   if (response.status === 401 && path !== 'auth/sign-in') {
-    const refreshToken = sessionStorage.getItem('refreshToken');
+    const refreshToken = localStorage.getItem('refreshToken');
     const response = await fetch(`${BASE_URL}/auth/refresh-token`, {
       method: 'POST',
       body: JSON.stringify({ refreshToken }),
@@ -44,13 +44,13 @@ const makeRequest = async ({
       const authorization = response.headers.get('Authorization');
       const refreshToken = response.headers.get('refresh-Token');
       if (authorization && refreshToken) {
-        sessionStorage.setItem('authorization', authorization);
+        localStorage.setItem('authorization', authorization);
 
-        sessionStorage.setItem('refreshToken', refreshToken);
+        localStorage.setItem('refreshToken', refreshToken);
         getUserData();
         return makeRequest({ path, method, body });
       }
-      sessionStorage.clear();
+      localStorage.clear();
       window.location.assign('http://localhost:3000/login');
     }
 
