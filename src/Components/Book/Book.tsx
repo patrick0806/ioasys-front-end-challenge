@@ -14,13 +14,14 @@ type BookProps = {
 export function BookDetails({ bookId, showBook, setShowBook }: BookProps) {
   const [book, setBook] = React.useState<Book>();
   const [isLoading, setIsLoading] = React.useState(true);
-  React.useEffect(() => {
-    async function loadBook() {
-      const book = await getBook(bookId);
-      setBook(book);
-      setIsLoading(false);
-    }
 
+  async function loadBook() {
+    const book = await getBook(bookId);
+    setBook(book);
+    setIsLoading(false);
+  }
+
+  React.useEffect(() => {
     loadBook();
   }, [showBook === true]);
 

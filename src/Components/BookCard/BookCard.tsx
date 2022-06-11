@@ -18,6 +18,7 @@ export function BookCard({
     setShowBookModal((prevState) => !prevState), setSelectedBookId(book.id);
   };
   const bookImage = book.imageUrl ? book.imageUrl : ImageDefault;
+
   return (
     <S.Container onClick={() => handleShowBookModal()}>
       <S.BookImage src={bookImage} alt={book.title} />
