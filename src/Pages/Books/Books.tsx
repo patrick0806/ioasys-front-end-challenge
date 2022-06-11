@@ -44,8 +44,6 @@ export function BooksPage() {
     }
   }
 
-  console.log(showBookModal);
-
   return (
     <S.Background>
       <S.Container>
@@ -54,7 +52,7 @@ export function BooksPage() {
             <Logo color={'#333333'} /> &nbsp; Books
           </S.PageTitle>
           <S.UserMenu>
-            <S.User>Bem vindo, {user.name}</S.User>
+            <S.User>Bem vindo, {user?.name}</S.User>
             <div onClick={SignOut}>
               <Exit />
             </div>

@@ -55,9 +55,14 @@ export function useUserContext() {
 }
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
-  const { user } = useUserContext();
+  const { user, dispatch } = useUserContext();
   const location = useLocation();
   if (!user) {
+    const userInStorage = sessionStorage.getItem('user');
+    if (userInStorage) {
+      dispatch({ type: 'LOGIN', payload: JSON.parse(userInStorage) });
+      return children;
+    }
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
