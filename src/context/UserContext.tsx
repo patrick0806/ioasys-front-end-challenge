@@ -57,15 +57,16 @@ export function useUserContext() {
 export function RequireAuth({ children }: { children: JSX.Element }) {
   const { user, dispatch } = useUserContext();
   const location = useLocation();
-  if (!user) {
-    const userInStorage = localStorage.getItem('user');
-    if (userInStorage) {
-      dispatch({ type: 'LOGIN', payload: JSON.parse(userInStorage) });
-      return children;
-    }
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
 
+  if (!user) {
+    const authorizationToken = localStorage.getItem('authorization');
+    const userInStorage = localStorage.getItem('user');
+    if (userInStorage === null || authorizationToken === null) {
+      return <Navigate to="/login" state={{ from: location }} replace />;
+    }
+
+    dispatch({ type: 'LOGIN', payload: JSON.parse(userInStorage) });
+  }
   return children;
 }
 
