@@ -110,21 +110,14 @@ export const PaginationContainer = styled.div`
   }
 `;
 
-type ButtonIsDisabled = {
-  isDisabled: boolean;
-};
-
-export const ButtonBackPage = styled.div<ButtonIsDisabled>`
+export const ButtonBackPage = styled.div`
   grid-area: BackPage;
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(51, 51, 51, 0.2);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  color: ${(props) => (props.isDisabled ? 'rgba(51, 51, 51, 0.2)' : '#333333')};
 `;
 
 export const PagesInfo = styled.div`
@@ -136,15 +129,11 @@ export const PagesInfo = styled.div`
   justify-content: center;
 `;
 
-export const ButtonNextPage = styled.div<ButtonIsDisabled>`
+export const ButtonNextPage = styled.div`
   grid-area: NextPage;
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(51, 51, 51, 0.2);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  color: ${(props) => (props.isDisabled ? 'rgba(51, 51, 51, 0.2)' : '#333333')};
 `;

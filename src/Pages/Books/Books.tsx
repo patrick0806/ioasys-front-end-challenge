@@ -3,7 +3,7 @@ import { Book, BookList } from '../../types/Book';
 import { BookCard } from '../../Components/BookCard/BookCard';
 import * as S from './Books.styles';
 import { getBooks } from '../../services/books/bookService';
-import { Exit, Logo } from '../../assets/icons';
+import { Exit, Logo, NextPageButton, PrevPageButton } from '../../assets/icons';
 import { useUserContext } from '../../context/UserContext';
 import { SignOut } from '../../services/user/userService';
 import { BookDetails } from '../../Components/Book/Book';
@@ -49,7 +49,7 @@ export function BooksPage() {
       <S.Container>
         <S.Menu>
           <S.PageTitle>
-            <Logo color={'#333333'} /> &nbsp; Books
+            <Logo color={'#333333'} /> Books
           </S.PageTitle>
           <S.UserMenu>
             <S.User>Bem vindo, {user?.name}</S.User>
@@ -70,20 +70,24 @@ export function BooksPage() {
             ))}
         </S.BooksContainer>
         <S.PaginationContainer>
-          <S.ButtonBackPage
-            isDisabled={bookList?.page === 1}
-            onClick={toBackPage}
-          >
-            {'<'}
+          <S.ButtonBackPage onClick={toBackPage}>
+            <PrevPageButton
+              opacity={
+                bookList?.page === 1 ? 'rgba(51, 51, 51, 0.2)' : '#333333'
+              }
+            />
           </S.ButtonBackPage>
           <S.PagesInfo>
             Página {bookList?.page} de {bookList?.totalPages.toFixed(0)}
           </S.PagesInfo>
-          <S.ButtonNextPage
-            isDisabled={bookList?.totalPages.toFixed(0) === bookList?.page}
-            onClick={toNextPage}
-          >
-            {'>'}
+          <S.ButtonNextPage onClick={toNextPage}>
+            <NextPageButton
+              opacity={
+                bookList?.page === Math.floor(bookList?.totalPages || 0)
+                  ? 'rgba(51, 51, 51, 0.2)'
+                  : '#333333'
+              }
+            />
           </S.ButtonNextPage>
         </S.PaginationContainer>
         {selectedBookId && (

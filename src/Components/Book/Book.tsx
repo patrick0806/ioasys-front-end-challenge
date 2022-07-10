@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { QuotationMarks } from '../../assets/icons';
+import { CloseModalButton, QuotationMarks } from '../../assets/icons';
 import { getBook } from '../../services/books/bookService';
 import { Book } from '../../types/Book';
 import * as S from './Book.styles';
@@ -27,17 +27,16 @@ export function BookDetails({ bookId, showBook, setShowBook }: BookProps) {
 
   const bookImage = book?.imageUrl ? book.imageUrl : ImageDefault;
   return (
-    <S.Container
-      showModal={showBook}
-      onClick={() => {
-        setShowBook(false);
-      }}
-    >
+    <S.Container showModal={showBook}>
       {isLoading && <p>Carregando...</p>}
       {!isLoading && book && (
         <>
-          <S.CloseModalButtonContainer>
-            <S.CloseModalButton>X</S.CloseModalButton>
+          <S.CloseModalButtonContainer
+            onClick={() => {
+              setShowBook(false);
+            }}
+          >
+            <CloseModalButton />
           </S.CloseModalButtonContainer>
           <S.Modal>
             <S.BookImage src={bookImage} alt={book.title} />
@@ -71,12 +70,10 @@ export function BookDetails({ bookId, showBook, setShowBook }: BookProps) {
                 <S.InfoLabel>ISBN-13</S.InfoLabel>
                 <S.Info>{book.isbn13}</S.Info>
               </S.Details>
+              <S.InfoTitle>Resenha da Editora</S.InfoTitle>
               <S.ResumeContainer>
-                <S.InfoTitle>Resenha da Editora</S.InfoTitle>
-                <S.Resume>
-                  <QuotationMarks />
-                  {book.description}
-                </S.Resume>
+                <QuotationMarks />
+                {book.description}
               </S.ResumeContainer>
             </S.BookDetails>
           </S.Modal>
